@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+Raman_Analysis_Output/
+.venv/
+.DS_Store
