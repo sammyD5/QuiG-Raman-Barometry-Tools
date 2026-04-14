@@ -1,4 +1,4 @@
-# QuiG: Quartz-in-Garnet Raman Spectral Analysis
+#  Quartz-in-Garnet Raman Spectral Analysis
 
 ## Key Features
 * **Baseline Correction:** Automated baseline subtraction using the Asymmetric Least Squares (ALS) algorithm.
