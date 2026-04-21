@@ -24,7 +24,6 @@
  ## Usage
  1. Place your Raman data (`.txt` files) in your working directory. Data should be in two columns: `Wavenumber` and `Intensity`.
  2. Open `run_QuiG_Raman_Spectral_Analysis.py` and update the **USER CONFIGURATION** section:
-    
     ```bash
     # Example Configuration
     QUARTZ_INCLUSION_FILE = r'path/to/your/data.txt'
@@ -37,11 +36,11 @@
 
  ## Output Files
  The tool generates several diagnostic and result files in your specified output directory:
- * `[Prefix]_corrected_spectrum.png` : The processed spectrum after baseline and temperature corrections.
- * `[Prefix]_spectrum_with_peaks.png` : Overview of identified peaks with markers.
- * `[Prefix]_pseudo_voigt_fits.png` : Detailed view of individual peak fits and residuals.
- * `[Prefix]_analysis_summary.txt` : A human-readable text summary of peak positions and FWHM.
- * `[Prefix]_analysis_results.json` : Full data structure for programmatic use or reloading.
+ * `[Prefix]_corrected_spectrum.png` : processed spectrum after baseline and temperature corrections.
+ * `[Prefix]_spectrum_with_peaks.png` : overview of identified peaks with markers.
+ * `[Prefix]_pseudo_voigt_fits.png` : detailed view of individual peak fits and residuals.
+ * `[Prefix]_analysis_summary.txt` : text summary of peak positions and FWHM.
+ * `[Prefix]_analysis_results.json` : full data structure for programmatic use or reloading.
 
 ---
 
@@ -67,26 +66,32 @@
    pip install -r requirements.txt
 
 ## Usage
-   1. Prepare your input data file in the format described above
-   2.  Open run_QuiG_Correlation_Anisotropy.py in a text editor
-   3.  Update the configuration section:
-      
-      
-      INPUT_DATA_FILE = r'C:/path/to/your/data.txt'
-      OUTPUT_DIRECTORY = 'QuiG_Analysis_Output'
 
-   4. Customize plot appearance (optional):
-      ```bash
-      CORRELATION_PLOT = {
-       'marker': 'o',      # Shape: 'o', 's', '^', 'D', '*'
-       'color': '#2E86AB', # Color (hex code or name)
-       'size': 120,        # Size of markers
-       'dpi': 900         # Resolution
-      }
+1. Prepare your input data: Ensure your data file follows the format described in the [example_QuiG_data.txt](#input-data-format).
+2. Open the runner script: Open `run_QuiG_Correlation_Anisotropy.py` in a text editor (e.g., VS Code, Notepad++, or Spyder).
+3. Update the configuration: Set the `INPUT_DATA_FILE` path to point to your data and define your `OUTPUT_DIRECTORY`.
+4. Customize plot appearance (Optional): You can modify the `CORRELATION_PLOT` dictionary to change how your results look:
+    ```python
+    CORRELATION_PLOT = {
+        'marker': 'o',      # Shape: 'o', 's', '^', 'D', '*'
+        'color': '#2E86AB', # Color (hex code or name)
+        'size': 120,        # Size of markers
+        'dpi': 900          # Resolution (900 is publication quality)
+    }
+    ```
+5. Run the analysis: Open your terminal or command prompt and execute:
+    ```bash
+    python run_QuiG_Correlation_Anisotropy.py
+    ```
+6. View Results: Once complete, all plots and data tables will be saved in your specified `OUTPUT_DIRECTORY`.
 
-6. Run the analysis:
-   ```bash
-   python run_QuiG_Correlation_Anisotropy.py
 
-8. Results will be saved in the OUTPUT_DIRECTORY folder
+ ## Output Files
+ The tool generates several diagnostic and result files in your specified output directory:
+ * `correlation_diagram_delta.png` : correlation between different Raman shift measurement (Δω₁ vs Δω₂).
+ * `pressure_comparison_P1_vs_P2.png` : diagnostic plot for pressure consistency.
+ * `QuiG_analysis_summary.txt` : includes all sample results and statistics.
+ * `QuiG_analysis_results.csv` : results in spreadsheet format
+ * `QuiG_analysis_results.json` : full data structure for reloading.
 
+---
